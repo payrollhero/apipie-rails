@@ -253,7 +253,12 @@ module Apipie
               if Apipie.configuration.validate_value?
                 method_params.each do |_, param|
                   # params validations
-                  param.validate(params[:"#{param.name}"]) if params.has_key?(param.name)
+                  if params.has_key?(param.name)
+                    value = params[:"#{param.name}"]
+                    if param.required || value.present?
+                      param.validate(value)
+                    end
+                  end
                 end
               end
 

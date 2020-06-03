@@ -345,7 +345,11 @@ module Apipie
               raise ParamMissing.new(p) if p.required && !value.has_key?(k)
             end
             if Apipie.configuration.validate_value?
-              p.validate(value[k]) if value.has_key?(k)
+              if value.has_key?(k)
+                if value[k].present? || self.params_ordered.detect { |x| x.name == k }.required
+                  p.validate(value[k])
+                end
+              end
             end
           end
         end
