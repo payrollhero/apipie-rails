@@ -19,11 +19,11 @@ module Apipie
     def self.from_dsl_data(method_description, args)
       param_name, validator, desc_or_options, options, block = args
       Apipie::ParamDescription.new(method_description,
-                                   param_name,
-                                   validator,
-                                   desc_or_options,
-                                   options,
-                                   &block)
+        param_name,
+        validator,
+        desc_or_options,
+        options,
+        &block)
     end
 
     def to_s
@@ -76,7 +76,7 @@ module Apipie
       raise ArgumentError.new("'#{@options[:only_in]}' is not a valid value for :only_in") if (!@response_only && !@request_only) && @options[:only_in].present?
 
       @show = if @options.key? :show
-        @options[:show]
+                @options[:show]
       else
         true
       end

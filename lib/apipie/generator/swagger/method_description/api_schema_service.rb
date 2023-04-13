@@ -17,8 +17,8 @@ class Apipie::Generator::Swagger::MethodDescription::ApiSchemaService
       end
 
       parameters = Apipie::Generator::Swagger::MethodDescription::ParametersService
-                   .new(@method_description, path: path, http_method: api.normalized_http_method)
-                   .call
+        .new(@method_description, path: path, http_method: api.normalized_http_method)
+        .call
 
       paths[path.swagger_path(@method_description)] ||= {}
       paths[path.swagger_path(@method_description)][api.normalized_http_method] = {
@@ -54,7 +54,7 @@ class Apipie::Generator::Swagger::MethodDescription::ApiSchemaService
 
   def warning_tags
     if Apipie.configuration.generator.swagger.include_warning_tags? &&
-       Apipie::Generator::Swagger::WarningWriter.instance.issued_warnings?
+        Apipie::Generator::Swagger::WarningWriter.instance.issued_warnings?
       ['warnings issued']
     else
       []

@@ -6,8 +6,8 @@ module Apipie
     def self.from_dsl_data(args)
       code_or_options, desc, options = args
       Apipie::ErrorDescription.new(code_or_options,
-                                   desc,
-                                   options)
+        desc,
+        options)
     end
 
     def initialize(code_or_options, desc = nil, options = {})

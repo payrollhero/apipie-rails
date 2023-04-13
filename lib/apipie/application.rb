@@ -64,7 +64,7 @@ module Apipie
     def routes_for_action(controller, method, args)
       routes = rails_routes.select do |route|
         controller == route_app_controller(route.app, route) &&
-            method.to_s == route.defaults[:action]
+          method.to_s == route.defaults[:action]
       end
 
       Apipie.configuration.routes_formatter.format_routes(routes, args)
@@ -271,12 +271,12 @@ module Apipie
 
       resources =
         Apipie::Generator::Swagger::ResourceDescriptionsCollection
-        .new(resource_descriptions)
-        .filter(
-          resource_id: resource_id,
-          method_name: method_name,
-          version: version
-        )
+          .new(resource_descriptions)
+          .filter(
+            resource_id: resource_id,
+            method_name: method_name,
+            version: version
+          )
 
       Apipie::SwaggerGenerator.generate_from_resources(
         resources,
@@ -291,12 +291,12 @@ module Apipie
       return unless valid_search_args?(version, resource_id, method_name)
 
       _resources = if resource_id.blank?
-        # take just resources which have some methods because
-        # we dont want to show eg ApplicationController as resource
-        resource_descriptions[version].inject({}) do |result, (k,v)|
-          result[k] = v.to_json(nil, lang) unless v._methods.blank?
-          result
-        end
+                     # take just resources which have some methods because
+                     # we dont want to show eg ApplicationController as resource
+                     resource_descriptions[version].inject({}) do |result, (k,v)|
+                       result[k] = v.to_json(nil, lang) unless v._methods.blank?
+                       result
+                     end
       else
         [@resource_descriptions[version][resource_id].to_json(method_name, lang)]
       end

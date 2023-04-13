@@ -39,7 +39,7 @@ module Apipie
       @headers = dsl_data[:headers]
 
       @show = if dsl_data.key? :show
-        dsl_data[:show]
+                dsl_data[:show]
       else
         true
       end

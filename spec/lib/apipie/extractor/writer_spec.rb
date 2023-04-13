@@ -8,54 +8,54 @@ describe Apipie::Extractor::Writer do
   let(:test_examples_file) { File.join(Rails.root, "doc", "apipie_examples_test.json") }
   let(:records) {
     {
-    "concern_resources#show" =>
-      [{
-        :controller=>ConcernsController,
-        :action=>"show",
-        :verb=>:GET,
-        :path=>"/api/concerns/5",
-        :params=>{},
-        :query=>"session=secret_hash",
-        :request_data=>nil,
-        :response_data=>"OK {\"session\"=>\"secret_hash\", \"id\"=>\"5\", \"controller\"=>\"concerns\", \"action\"=>\"show\"}",
-        :code=>"200"
-      }, {
-        :controller=>ConcernsController,
-        :action=>"show",
-        :verb=>:GET,
-        :path=>"/api/concerns/5",
-        :params=>{},
-        :query=>"",
-        :request_data=>nil,
-        :response_data=>"OK {\"id\"=>\"5\", \"controller\"=>\"concerns\", \"action\"=>\"show\"}",
-        :code=>"200"
-      }]
+      "concern_resources#show" =>
+        [{
+          :controller=>ConcernsController,
+          :action=>"show",
+          :verb=>:GET,
+          :path=>"/api/concerns/5",
+          :params=>{},
+          :query=>"session=secret_hash",
+          :request_data=>nil,
+          :response_data=>"OK {\"session\"=>\"secret_hash\", \"id\"=>\"5\", \"controller\"=>\"concerns\", \"action\"=>\"show\"}",
+          :code=>"200"
+        }, {
+          :controller=>ConcernsController,
+          :action=>"show",
+          :verb=>:GET,
+          :path=>"/api/concerns/5",
+          :params=>{},
+          :query=>"",
+          :request_data=>nil,
+          :response_data=>"OK {\"id\"=>\"5\", \"controller\"=>\"concerns\", \"action\"=>\"show\"}",
+          :code=>"200"
+        }]
     }
   }
   let(:loaded_records) {
     {
-    "concern_resources#show" =>
-      [{
-        "verb"=>:GET,
-        "path"=>"/api/concerns/5",
-        "versions"=>["development"],
-        "query"=>"session=secret_hash",
-        "request_data"=>nil,
-        "response_data"=>"OK {\"session\"=>\"secret_hash\", \"id\"=>\"5\", \"controller\"=>\"concerns\", \"action\"=>\"show\"}",
-        "code"=>"200",
-        "show_in_doc"=>1,
-        "recorded"=>true
-      }, {
-        "verb"=>:GET,
-        "path"=>"/api/concerns/5",
-        "versions"=>["development"],
-        "query"=>"",
-        "request_data"=>nil,
-        "response_data"=>"OK {\"id\"=>\"5\", \"controller\"=>\"concerns\", \"action\"=>\"show\"}",
-        "code"=>"200",
-        "show_in_doc"=>0,
-        "recorded"=>true
-      }]
+      "concern_resources#show" =>
+        [{
+          "verb"=>:GET,
+          "path"=>"/api/concerns/5",
+          "versions"=>["development"],
+          "query"=>"session=secret_hash",
+          "request_data"=>nil,
+          "response_data"=>"OK {\"session\"=>\"secret_hash\", \"id\"=>\"5\", \"controller\"=>\"concerns\", \"action\"=>\"show\"}",
+          "code"=>"200",
+          "show_in_doc"=>1,
+          "recorded"=>true
+        }, {
+          "verb"=>:GET,
+          "path"=>"/api/concerns/5",
+          "versions"=>["development"],
+          "query"=>"",
+          "request_data"=>nil,
+          "response_data"=>"OK {\"id\"=>\"5\", \"controller\"=>\"concerns\", \"action\"=>\"show\"}",
+          "code"=>"200",
+          "show_in_doc"=>0,
+          "recorded"=>true
+        }]
     }
   }
 

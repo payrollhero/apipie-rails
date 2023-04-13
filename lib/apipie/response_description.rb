@@ -57,11 +57,11 @@ module Apipie
       options, scope, block, adapter = args
 
       Apipie::ResponseDescription.new(method_description,
-                                      code,
-                                      options,
-                                      scope,
-                                      block,
-                                      adapter)
+        code,
+        options,
+        scope,
+        block,
+        adapter)
     end
 
     def is_array?
@@ -120,11 +120,11 @@ module Apipie
 
     def to_json(lang = nil)
       {
-          :code => code,
-          :description => Apipie.app.translate(description, lang),
-          :is_array => is_array?,
-          :returns_object => params_ordered.map{ |param| param.to_json(lang).tap{|h| h.delete(:validations) }}.flatten,
-          :additional_properties => additional_properties,
+        :code => code,
+        :description => Apipie.app.translate(description, lang),
+        :is_array => is_array?,
+        :returns_object => params_ordered.map{ |param| param.to_json(lang).tap{|h| h.delete(:validations) }}.flatten,
+        :additional_properties => additional_properties,
       }
     end
   end

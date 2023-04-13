@@ -28,7 +28,7 @@ module Apipie
 
       def _apipie_dsl_data_init
         @_apipie_dsl_data =  {
-         :api               => false,
+          :api               => false,
          :api_args          => [],
          :api_from_routes   => nil,
          :errors            => [],
@@ -46,7 +46,7 @@ module Apipie
          :meta              => nil,
          :show              => true,
          :deprecated        => false
-       }
+        }
       end
     end
 

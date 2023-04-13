@@ -1,6 +1,6 @@
 class Apipie::Generator::Swagger::Context
   attr_reader :default_in_value, :language, :http_method, :controller_method,
-              :prefix
+    :prefix
 
   def initialize(
     allow_null:,

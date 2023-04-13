@@ -97,16 +97,16 @@ module Apipie
       def all_api_routes
         all_routes = Apipie.configuration.api_routes.routes.map do |r|
           {
-              :verb => case r.verb
-                         when Regexp then r.verb.source[/\w+/]
-                         else r.verb.to_s
-                       end,
-              :path => case
-                         when r.path.respond_to?(:spec) then r.path.spec.to_s
-                         else r.path.to_s
-                       end,
-              :controller => r.requirements[:controller],
-              :action => r.requirements[:action]
+            :verb => case r.verb
+                     when Regexp then r.verb.source[/\w+/]
+                     else r.verb.to_s
+                     end,
+            :path => case
+                     when r.path.respond_to?(:spec) then r.path.spec.to_s
+                     else r.path.to_s
+                     end,
+            :controller => r.requirements[:controller],
+            :action => r.requirements[:action]
           }
         end
 

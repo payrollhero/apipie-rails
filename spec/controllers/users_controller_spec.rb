@@ -174,7 +174,7 @@ describe UsersController do
           it "should work with custom Type validator" do
             expect {
               get :show,
-                  :params => { :id => "not a number", :session => "secret_hash" }
+                :params => { :id => "not a number", :session => "secret_hash" }
             }.to raise_error(Apipie::ParamError, /id/) # old-style error rather than ParamInvalid
           end
 
@@ -214,17 +214,17 @@ describe UsersController do
           it "should work with Proc validator" do
             expect {
               get :show,
-                  :params => {
-                    :id => 5,
-                    :session => "secret_hash",
-                    :proc_param => "asdgsag" }
-            }.to raise_error(Apipie::ParamInvalid, /proc_param/)
-
-            get :show,
                 :params => {
                   :id => 5,
                   :session => "secret_hash",
-                  :proc_param => "param value"}
+                  :proc_param => "asdgsag" }
+            }.to raise_error(Apipie::ParamInvalid, /proc_param/)
+
+            get :show,
+              :params => {
+                :id => 5,
+                :session => "secret_hash",
+                :proc_param => "param value"}
             assert_response :success
           end
 
@@ -261,29 +261,29 @@ describe UsersController do
           it "should support Hash validator without specifying keys" do
             params = Apipie[UsersController, :create].to_json[:params]
             expect(params).to include(:name => "facts",
-                                  :full_name => "facts",
-                                  :validator => "Must be a Hash",
-                                  :description => "\n<p>Additional optional facts about the user</p>\n",
-                                  :required => false,
-                                  :allow_nil => true,
-                                  :allow_blank => false,
-                                  :metadata => nil,
-                                  :show => true,
-                                  :deprecated => false,
-                                  :expected_type => "hash",
-                                  :validations => [])
+              :full_name => "facts",
+              :validator => "Must be a Hash",
+              :description => "\n<p>Additional optional facts about the user</p>\n",
+              :required => false,
+              :allow_nil => true,
+              :allow_blank => false,
+              :metadata => nil,
+              :show => true,
+              :deprecated => false,
+              :expected_type => "hash",
+              :validations => [])
           end
 
           it "should allow nil when allow_nil is set to true" do
             post :create,
-                 :params => {
-                   :user => {
-                     :name => "root",
-                     :pass => "12345",
-                     :membership => "standard",
-                   },
-                   :facts => { :test => 'test' }
-                 }
+              :params => {
+                :user => {
+                  :name => "root",
+                  :pass => "12345",
+                  :membership => "standard",
+                },
+                :facts => { :test => 'test' }
+              }
             assert_response :success
           end
 
@@ -305,21 +305,21 @@ describe UsersController do
             context "with valid input" do
               it "should succeed" do
                 put :update,
-                    :params => {
-                      :id => 5,
-                      :user => {
-                        :name => "root",
-                        :pass => "12345"
+                  :params => {
+                    :id => 5,
+                    :user => {
+                      :name => "root",
+                      :pass => "12345"
+                    },
+                    :comments => [
+                      {
+                        :comment => 'comment1'
                       },
-                      :comments => [
-                        {
-                          :comment => 'comment1'
-                        },
-                        {
-                          :comment => 'comment2'
-                        }
-                      ]
-                    }
+                      {
+                        :comment => 'comment2'
+                      }
+                    ]
+                  }
 
                 assert_response :success
               end
@@ -328,35 +328,35 @@ describe UsersController do
               it "should raise an error" do
                 expect{
                   put :update,
-                      :params => {
-                        :id => 5,
-                        :user => {
-                          :name => "root",
-                          :pass => "12345"
+                    :params => {
+                      :id => 5,
+                      :user => {
+                        :name => "root",
+                        :pass => "12345"
+                      },
+                      :comments => [
+                        {
+                          :comment => {:bad_input => 4}
                         },
-                        :comments => [
-                          {
-                            :comment => {:bad_input => 4}
-                          },
-                          {
-                            :comment => {:bad_input => 5}
-                          }
-                        ]
-                      }
+                        {
+                          :comment => {:bad_input => 5}
+                        }
+                      ]
+                    }
                 }.to raise_error(Apipie::ParamInvalid)
               end
             end
             it "should work with empty array" do
               put :update,
-                  :params => {
-                    :id => 5,
-                    :user => {
-                      :name => "root",
-                      :pass => "12345"
-                    },
-                    :comments => [
-                    ]
-                  }
+                :params => {
+                  :id => 5,
+                  :user => {
+                    :name => "root",
+                    :pass => "12345"
+                  },
+                  :comments => [
+                  ]
+                }
 
               assert_response :success
             end

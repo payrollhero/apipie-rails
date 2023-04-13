@@ -119,13 +119,13 @@ module Apipie
 
       def to_json(lang)
         {
-            name: name,
-            required: required,
-            validator: validator,
-            description: description,
-            additional_properties: additional_properties,
-            is_array: is_array?,
-            options: options
+          name: name,
+          required: required,
+          validator: validator,
+          description: description,
+          additional_properties: additional_properties,
+          is_array: is_array?,
+          options: options
         }
       end
       attr_reader :name, :required, :expected_type, :options, :description

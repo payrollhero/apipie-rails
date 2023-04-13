@@ -247,7 +247,7 @@ class UsersController < ApplicationController
   error :code => 404, :desc => "Not Found"
   desc "List all users."
   param :oauth, nil,
-        :desc => "Hide this global param (eg dont need auth here)"
+    :desc => "Hide this global param (eg dont need auth here)"
   def index
     render :plain => "List of users"
   end

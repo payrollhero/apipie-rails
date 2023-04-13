@@ -168,7 +168,7 @@ class PetsController < ApplicationController
   end
   def return_and_validate_expected_response
     result =  {
-        a_number: 3
+      a_number: 3
     }
     render :json => result
   end
@@ -183,7 +183,7 @@ class PetsController < ApplicationController
   end
   def return_and_validate_expected_response_with_null
     result =  {
-        a_number: nil
+      a_number: nil
     }
     render :json => result
   end
@@ -199,7 +199,7 @@ class PetsController < ApplicationController
   end
   def return_and_validate_expected_response_with_null_object
     result =  {
-        an_object: nil
+      an_object: nil
     }
     render :json => result
   end
@@ -216,8 +216,8 @@ class PetsController < ApplicationController
   returns :code => 200, :array_of => :two_numbers
   def return_and_validate_expected_array_response
     result =  [{
-                   a_number: 3
-               }]
+      a_number: 3
+    }]
     render :json => result
   end
 
@@ -229,8 +229,8 @@ class PetsController < ApplicationController
   returns :two_numbers, :code => 201
   def return_and_validate_unexpected_array_response
     result =  [{
-                   a_number: 3
-               }]
+      a_number: 3
+    }]
     render :status => 201, :json => result
   end
 
@@ -243,7 +243,7 @@ class PetsController < ApplicationController
   end
   def return_and_validate_type_mismatch
     result =  {
-        a_number: 3
+      a_number: 3
     }
     render :json => result
   end
@@ -265,7 +265,7 @@ class PetsController < ApplicationController
   end
   def return_and_validate_missing_field
     result =  {
-        a_number: 3
+      a_number: 3
     }
     render :json => result
   end
@@ -281,8 +281,8 @@ class PetsController < ApplicationController
   end
   def return_and_validate_extra_property
     result =  {
-        a_number: 3,
-        another_number: 4
+      a_number: 3,
+      another_number: 4
     }
     render :json => result
   end
@@ -298,8 +298,8 @@ class PetsController < ApplicationController
   end
   def return_and_validate_allowed_extra_property
     result =  {
-        a_number: 3,
-        another_number: 4
+      a_number: 3,
+      another_number: 4
     }
     render :json => result
   end
@@ -316,10 +316,10 @@ class PetsController < ApplicationController
   end
   def sub_object_invalid_extra_property
     result =  {
-        an_object: {
-            a_number: 2,
-            an_extra_number: 3
-        }
+      an_object: {
+        a_number: 2,
+        an_extra_number: 3
+      }
     }
     render :json => result
   end
@@ -337,10 +337,10 @@ class PetsController < ApplicationController
   end
   def sub_object_allowed_extra_property
     result =  {
-        an_object: {
-            a_number: 2,
-            an_extra_number: 3
-        }
+      an_object: {
+        a_number: 2,
+        an_extra_number: 3
+      }
     }
     render :json => result
   end
@@ -362,11 +362,11 @@ class PetsController < ApplicationController
   end
   def returns_response_with_valid_array
     result =  {
-        a_number: 3,
-        array_of_objects: [
-            {number1: 1, number2: 2},
-            {number1: 10, number2: 20}
-        ]
+      a_number: 3,
+      array_of_objects: [
+        {number1: 1, number2: 2},
+        {number1: 10, number2: 20}
+      ]
     }
     render :json => result
   end
@@ -385,11 +385,11 @@ class PetsController < ApplicationController
   end
   def returns_response_with_invalid_array
     result =  {
-        a_number: 3,
-        array_of_objects: [
-            {number1: 1, number2: 2},
-            {number1: 10, number2: "this should have been a number"}
-        ]
+      a_number: 3,
+      array_of_objects: [
+        {number1: 1, number2: 2},
+        {number1: 10, number2: "this should have been a number"}
+      ]
     }
     render :json => result
   end
